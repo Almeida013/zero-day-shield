@@ -11,5 +11,5 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 # TESTE: Gitleaks deve detectar isso
-AWS_SECRET_ACCESS_KEY = "abc123SECRET/fakeKEYdeEXEMPLO_EDITADO"
+AWS_SECRET_ACCESS_KEY = "AKIA123FAKECHAVEPARAGITLEAKS"
 
