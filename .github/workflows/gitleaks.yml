@@ -1,19 +1,7 @@
-name: Verificação de segredos com Gitleaks
+- name: Rodar Gitleaks manualmente
+  run: |
+    curl -sSL https://github.com/gitleaks/gitleaks/releases/latest/download/gitleaks-linux-amd64 -o gitleaks
+    chmod +x gitleaks
+    ./gitleaks detect --source . --redact --verbose --log-level=debug --exit-code=1
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
-jobs:
-  gitleaks-scan:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Clonar o repositório
-        uses: actions/checkout@v3
-
-      - name: Rodar Gitleaks
-        uses: gitleaks/gitleaks-action@v2
-        with:
-          args: "--verbose --redact"
