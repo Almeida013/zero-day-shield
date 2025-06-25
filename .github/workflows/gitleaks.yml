@@ -1,7 +1,21 @@
-- name: Rodar Gitleaks manualmente
-  run: |
-    curl -sSL https://github.com/gitleaks/gitleaks/releases/latest/download/gitleaks-linux-amd64 -o gitleaks
-    chmod +x gitleaks
-    ./gitleaks detect --source . --redact --verbose --log-level=debug --exit-code=1
+name: Rodar Gitleaks manualmente
+
+on:
+  workflow_dispatch:
+
+jobs:
+  gitleaks-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositório
+        uses: actions/checkout@v3
+
+      - name: Baixar e rodar Gitleaks manualmente
+        run: |
+          curl -sSL https://github.com/gitleaks/gitleaks/releases/latest/download/gitleaks-linux-amd64 -o gitleaks
+          chmod +x gitleaks
+          ./gitleaks detect --source . --redact --verbose --log-level=debug --exit-code=1
+
 
 
