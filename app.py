@@ -10,6 +10,6 @@ if __name__ == "__main__":
     print("[LOG] Subindo servidor Flask...")
     app.run(debug=True)
 
-# 🔒 Simulando um vazamento proposital
-AWS_ACCESS_KEY_ID = "AKIA1234567890EXAMPLE"
-AWS_SECRET_ACCESS_KEY = "abc123SECRET/fakeKEYdeEXEMPLO"
+# TESTE: Gitleaks deve detectar isso
+AWS_SECRET_ACCESS_KEY = "abc123SECRET/fakeKEYdeEXEMPLO_EDITADO"
+
